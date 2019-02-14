@@ -22,6 +22,12 @@
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto; }
+    .container--alternate-pseudo-tatic {
+      word-break: break-all;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto; }
 
 .img-responsive {
   max-width: 100%;
@@ -367,6 +373,11 @@ template {
       display: flex;
       min-height: 100%;
       position: relative; }
+      .card-deck--alternate-pseudo-tatic {
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        min-height: 100%; }
   .card--alternate {
     width: 25%;
     padding: 0 15px;
@@ -381,6 +392,10 @@ template {
         position: absolute;
         top: 50%;
         transform: translateY(-50%); }
+    .card--alternate-pseudo-tatic {
+      width: 25%;
+      padding: 0 15px;
+      float: left; }
   .card .img__wrapper {
     display: flex;
     flex-direction: column;
@@ -403,3 +418,40 @@ template {
           position: absolute;
           top: 50%;
           transform: translateY(-50%); } }
+
+.img__wrapper--alternate-pseudo-tatic {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+/**
+* Pseudo Tatic Approach
+[style*="--aspect-ratio"] {
+    &> :first-child {
+        width: 100%;
+    }
+    
+    &>img {
+        height: auto;
+    }
+}
+*/
+/*@supports (--custom:property) {
+    [style*="--aspect-ratio"] {
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            //padding-bottom: calc(100% / (var(--aspect-ratio)));
+        }
+
+        &> :first-child {
+            position: absolute;
+            top: 50%; // 0 0 makes a cover 50% 50% centralizes
+            left: 50%;
+            height: auto; // 100% cover auto makes default height
+            transform: translate(-50%, -50%);
+        }
+    }
+}*/

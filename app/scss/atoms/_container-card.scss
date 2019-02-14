@@ -12,5 +12,9 @@
 
     &--alternate {
         @include hyphens();
+
+        &-pseudo-tatic {
+            @include hyphens();
+        }
     }
 }
